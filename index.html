@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sitzordnung Klasse: 9b</title>
+    <link rel="shortcut icon" href="logo.jpg">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 300;
+            margin-top: 20px;
+            font-size: xx-large;
+        }
+
+        main {
+            width: 100%;
+            display: table;
+        }
+
+        body {
+            background-color: rgb(39, 41, 68);
+            width: 800px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            -ms-user-select: None;
+            -moz-user-select: None;
+            -webkit-user-select: None;
+        }
+
+        body div {
+            width: 100%;
+        }
+
+        button {
+            font-size: 17px;
+            position: relative;
+            float: inline;
+            width: 100%;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        b {
+            font-size: 30%;
+            vertical-align: middle;
+        }
+
+        #left {
+            color: white;
+            background-color: cadetblue;
+            border-spacing: 20px;
+            font-size: 50px;
+            float: left;
+            display: table-cell;
+            max-width: 50%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-height: 500px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #right {
+            color: white;
+            background-color: darkred;
+            border-spacing: 20px;
+            font-size: 50px;
+            float: right;
+            display: table-cell;
+            max-width: 50%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-height: 500px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .space {
+            width: 30%;
+            display: table-cell;
+            float: left;
+            height: 70px;
+        }
+
+        .container {
+            width: 40%;
+            display: table-cell;
+            float: left;
+        }
+
+        footer {
+            width: 800px;
+            margin-top: 10px;
+            height: 70px;
+            display: table;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="space"></div>
+        <div class="container">
+            <button id="generateBtn" href="javascript:void(0)">Sitzplatz generieren</button>
+        </div>
+        <div class="space"></div>
+    </header>
+
+    <main>
+        <table id="left">
+            <tr>
+                <td class="chair" id="seat_0">???</td>
+                <td id="seat_1" class="chair">???</td>
+                <td id="seat_2" class="chair">???</td>
+                <td id="seat_3" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_4" class="chair">???</td>
+                <td id="seat_5" class="chair">???</td>
+                <td id="seat_6" class="chair">???</td>
+                <td id="seat_7" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_8" class="chair">???</td>
+                <td id="seat_9" class="chair">???</td>
+                <td id="seat_10" class="chair">???</td>
+                <td id="seat_11" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_12" class="chair">???</td>
+                <td id="seat_13" class="chair">???</td>
+                <td id="seat_14" class="chair">???</td>
+                <td id="seat_15" class="chair">???</td>
+            </tr>
+        </table>
+
+        <table id="right">
+            <tr>
+                <td id="seat_16" class="chair">???</td>
+                <td id="seat_17" class="chair">???</td>
+                <td id="seat_18" class="chair">???</td>
+                <td id="seat_19" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_20" class="chair">???</td>
+                <td id="seat_21" class="chair">???</td>
+                <td id="seat_22" class="chair">???</td>
+                <td id="seat_23" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_24" class="chair">???</td>
+                <td id="seat_25" class="chair">???</td>
+                <td id="seat_26" class="chair">???</td>
+                <td id="seat_27" class="chair">???</td>
+            </tr>
+            <tr>
+                <td id="seat_28" class="chair">???</td>
+                <td id="seat_29" class="chair">???</td>
+                <td id="seat_30" class="chair">???</td>
+                <td id="seat_31" class="chair">???</td>
+            </tr>
+        </table>
+    </main>
+
+    <br>
+
+    <footer>
+        <button style="border-color: transparent;">TAFEL</button>
+    </footer>
+
+    <script>
+        let schülerArray = ["Sasha", "Marc", "Anna", "Leonie", "Naemi", "Eliano", "Julia", "Marlena", "Emily",
+            "Katharina", "Kilian", "Malte", "Paul", "Lasse", "Jenny", "Justin", "Sarah", "Pia", "Lina", "Lukas",
+            "Jonas_S.", "Milena", "Ben", "Nora", "Sebastian", "Maxi", "Jonas_W.", "Kais", "Awrin"
+        ];
+        let sitzplätze = 32;
+        let _platz = [];
+        let _schüler = [];
+        let comb = [];
+
+        function roll() {
+            const randomplatz = Math.floor((Math.random() * sitzplätze));
+            const schülerrandom = schülerArray[Math.floor(Math.random() * schülerArray.length)];
+            return {
+                randomplatz,
+                schülerrandom
+            };
+        }
+
+        function check(platz, schüler) {
+            if (_platz.includes(platz) || _schüler.includes(schüler)) {
+                let {
+                    randomplatz,
+                    schülerrandom
+                } = roll();
+                check(randomplatz, schülerrandom);
+            } else if (!_platz.includes(platz) && !_schüler.includes(schüler)) {
+                _platz.push(platz);
+                _schüler.push(schüler);
+                comb.push({
+                    platz,
+                    schüler
+                });
+            }
+        }
+        let startButton = document.getElementById("generateBtn");
+        let index = 0;
+
+        startButton.onclick = () => {
+            if (schülerArray.length > sitzplätze) {
+                return alert("Nicht genug Sitzplätze!");
+            }
+            if (index == schülerArray.length) {
+                return alert(
+                    "Die übrigen Plätze mit ??? bleiben frei.\nOder es kann noch etwas an der Sitzordnung verändert werden, wenn gewünscht."
+                );
+            }
+            let {
+                randomplatz,
+                schülerrandom
+            } = roll();
+            check(randomplatz, schülerrandom);
+            index++;
+            let seats = window.document.getElementsByClassName("chair");
+            for (let i = 0; i < sitzplätze; i++) {
+                const element = seats.item(i);
+                let em = comb.find(elem => elem.platz == element.id.split("_")[1]);
+                if (em) {
+                    element.innerHTML = "<b>" + em.schüler + "</b>"
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
